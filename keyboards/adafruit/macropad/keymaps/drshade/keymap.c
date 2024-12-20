@@ -22,10 +22,10 @@ enum custom_keycodes {
 };
 
 static bool keyboard_feature_enabled = false;
-static uint32_t keyboard_feature_delay = 15000;
+static uint32_t keyboard_feature_delay = 60000;
 
 static bool mouse_feature_enabled = false;
-static uint32_t mouse_feature_delay = 500;
+static uint32_t mouse_feature_delay = 60000;
 static int mouse_direction = 0;
 static int mouse_amplitude = 0;
 
@@ -129,7 +129,7 @@ void matrix_scan_user(void) {
     if (keyboard_feature_enabled) {
         if (timer_elapsed(keyboard_last_timer) > keyboard_feature_delay) {
             // Send Shift key
-            tap_code(KC_CAPS);
+            tap_code(KC_LSFT);
 
             // Reset the timer
             keyboard_last_timer = timer_read();
